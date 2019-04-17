@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Layout, Menu} from "antd"
 
-import {Link, Route, Switch} from "react-router-dom";
+import {Link, Redirect, Route, Switch} from "react-router-dom";
 
 import Posts from './Posts'
 import Gallery from './Gallery'
@@ -18,6 +18,8 @@ class Index extends Component {
 		const selectedKeys = history.location.pathname.substr(1);
 		const defaultOpenKeys = selectedKeys.split('/')[1];
 
+		console.log(defaultOpenKeys);
+
 
         return (
             <Layout className="layout">
@@ -30,8 +32,8 @@ class Index extends Component {
                         mode="horizontal"
                         style={{lineHeight: '64px'}}
                     >
-                        <Menu.Item key="feeds">
-							<Link to="/feeds">Posts</Link>
+                        <Menu.Item key={undefined}>
+							<Link to="/">Posts</Link>
                         </Menu.Item>
                         <Menu.Item key="gallery">
 							<Link to="/gallery">Gallery</Link>
@@ -47,7 +49,8 @@ class Index extends Component {
                 </Header>
                 <Content style={{padding: '0 50px'}}>
 					<Switch>
-						<Route path={`${match.url}feeds`} breadcrumbName="Posts" component={Posts}/>
+						{/**/}
+						<Route path={`${match.url}/`} breadcrumbName="Posts" component={Posts}/>
 						<Route path={`${match.url}gallery`} breadcrumbName="Gallery" component={Gallery}/>
 						<Route path={`${match.url}tasks`} breadcrumbName="Tasks" component={Tasks}/>
 						{/*<Route path={`${match.url}users`} breadcrumbName="Users" component={Users}/>*/}
