@@ -24,7 +24,7 @@ npm install
 After creation, your project should look like this:
 
 ```
-redux-saga-auth-app/    
+react-antd-sample-app/    
     node_modules/
     public/
     src/   
